@@ -1,3 +1,6 @@
+import numpy
+
+
 class Vector:
     '''"In this exercise, you have to create a Vector class.
 The goal is to have vectors and be able to perform mathematical operations
@@ -21,7 +24,8 @@ with them.'''
 
     def __radd__(self, other):
         # add : scalars and vectors, can have errors with vectors.
-        pass
+        added = (a + other for a in self.values)
+        return Vector(added)
 
     def __sub__(self, other):
         pass
@@ -58,5 +62,6 @@ V5 = Vector((10, 14))
 print(V3)
 print(V4)
 print(V5)
-V1 = V3 + V4
+V1 = V3 + V4 + V5
 print(V1)
+print(V3.__radd__(3))
